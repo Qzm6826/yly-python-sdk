@@ -6,3 +6,5 @@ python:
   - "3.6"
   # PyPy versions
   - "pypy3.5"
+ script:
+    - pytest
