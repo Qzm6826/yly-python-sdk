@@ -2,4 +2,3 @@
 build/
 yly_python_sdk.egg-info/
 dist/
-test.py
