@@ -4,8 +4,7 @@ import uuid
 import time
 import hashlib
 import json
-import urllib2
-from urllib import urlencode
+
 
 class RpcClient:
 
@@ -25,7 +24,7 @@ class RpcClient:
         self.md5.update(sign_str.encode('utf-8'))
         params['sign'] = self.md5.hexdigest()
         request_url = self.url + action
-        request_data = urlencode(params)
+        request_data = params
         return self.post(request_url, request_data)
 
     def post(self, req_url, req_params):
@@ -33,8 +32,7 @@ class RpcClient:
             header = {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8',
             }
-            req = urllib2.Request(req_url, req_params, header)
-            res = urllib2.urlopen(req)
-            return json.loads(res.read())
+            res = requests.post(req_url, data=req_params, headers=header)
+            return json.loads(res.text)
         except Exception as e:
             raise Exception('yly api response:{}'.format(e))

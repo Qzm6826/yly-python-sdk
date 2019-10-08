@@ -3,8 +3,7 @@ import uuid
 import time
 import hashlib
 import json
-import urllib2
-from urllib import urlencode
+import requests
 
 class Oauth:
 
@@ -29,8 +28,7 @@ class Oauth:
         sign_str = str(self.client_id) + str(params['timestamp']) + str(self.client_secret)
         self.md5.update(sign_str.encode('utf-8'))
         params['sign'] = self.md5.hexdigest()
-        request_params = urlencode(params)
-        return self.post(request_params)
+        return self.post(params)
 
     def refresh_token(self, refresh_token):
         params = {
@@ -44,8 +42,7 @@ class Oauth:
         sign_str = str(self.client_id) + str(params['timestamp']) + str(self.client_secret)
         self.md5.update(sign_str.encode('utf-8'))
         params['sign'] = self.md5.hexdigest()
-        request_params = urlencode(params)
-        return self.post(request_params)
+        return self.post(params)
 
     def post(self, req_params):
         try:
@@ -53,8 +50,7 @@ class Oauth:
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             }
             req_url = self.url + 'oauth/oauth'
-            req = urllib2.Request(req_url, req_params, header)
-            res = urllib2.urlopen(req)
-            return json.loads(res.read())
+            res = requests.post(req_url, data=req_params, headers=header)
+            return json.loads(res.text)
         except Exception as e:
             raise Exception('yly api response:{}'.format(e))
