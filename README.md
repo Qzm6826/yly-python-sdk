@@ -10,7 +10,7 @@ python >= 2.7
 
 # Installation  
 ```shell
-pip install yly-python-sdk
+sudo pip install yly-python-sdk
 ```
 
 # Usage or Instructions
