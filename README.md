@@ -43,6 +43,6 @@ rpc_client = RpcClient(config, access_token)
 ```
 #### 第五步 实例化一个Api对象，调用api方法，获取资源数据
 ```python
-print_service = YlyPrint(rpcClient)
+print_service = YlyPrint(rpc_client)
 print_service.index('机器码', '打印内容', '商户系统内部订单号，要求32个字符内，只能是数字、大小写字母')
 ```
