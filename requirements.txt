@@ -1,1 +1,1 @@
-yly-python-sdk
+yly-python-sdk==1.2.0
