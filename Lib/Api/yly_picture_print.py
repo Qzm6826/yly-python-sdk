@@ -21,4 +21,4 @@ class YlyPicturePrint:
             'picture_url': link,
             'origin_id': origin_id
         }
-        return self.__client.call('picture/index', params)
+        return self.__client.call('pictureprint/index', params)
