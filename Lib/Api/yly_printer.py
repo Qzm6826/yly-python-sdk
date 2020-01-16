@@ -19,7 +19,7 @@ class YlyPrinter:
         """
         params = {
             'machine_code': machine_code,
-            'msgin': msign,
+            'msign': msign,
             'print_name': print_name,
             'phone': phone
         }
