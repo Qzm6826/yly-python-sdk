@@ -3,7 +3,7 @@ class Config:
 
     __client_id = None
     __client_secret = None
-    __request_url = 'https://open-api.10ss.net/'
+    __request_url = 'https://open-api.10ss.net'
 
     def __init__(self, id, secret):
         if (id == None or secret == None):
@@ -19,3 +19,6 @@ class Config:
 
     def get_request_url(self):
         return self.__request_url
+
+    def set_request_url(self, request_url):
+        self.__request_url = request_url

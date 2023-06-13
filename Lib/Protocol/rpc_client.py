@@ -18,12 +18,12 @@ class RpcClient:
     def call(self, action, params):
         params['client_id'] = self.client_id
         params['access_token'] = self.access_token
-        params['timestamp'] = time.time()
+        params['timestamp'] = int(time.time())
         params['id'] = uuid.uuid4()
         sign_str = str(self.client_id) + str(params['timestamp']) + self.client_secret
         self.md5.update(sign_str.encode('utf-8'))
         params['sign'] = self.md5.hexdigest()
-        request_url = self.url + action
+        request_url = self.url + '/' + action
         request_data = params
         return self.post(request_url, request_data)
 

@@ -219,6 +219,19 @@ class YlyPrinter:
         }
         return self.__client.call('printer/getorderpaginglist', params)
 
+    def reprint(self, machine_code, order_no):
+        """
+        获取订单状态接口
+        :param machine_code: 机器码
+        :param order_no: 易联云订单id
+        :return:
+        """
+        params = {
+            'machine_code': machine_code,
+            'order_id': order_no
+        }
+        return self.__client.call('printer/reprintorder', params)
+
     def get_print_status(self, machine_code):
         """
         获取终端状态接口

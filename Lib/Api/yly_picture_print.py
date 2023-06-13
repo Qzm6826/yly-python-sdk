@@ -8,7 +8,7 @@ class YlyPicturePrint:
     def __init__(self, client):
         self.__client = client
 
-    def index(self, machine_code, link, origin_id):
+    def index(self, machine_code, link, origin_id, idempotence= 0):
         """
         图形打印接口 不支持机型: k4-wh, k4-wa, m1
         :param machine_code: 机器码
@@ -21,4 +21,7 @@ class YlyPicturePrint:
             'picture_url': link,
             'origin_id': origin_id
         }
+        if idempotence == 1:
+            params['idempotence'] = idempotence
+
         return self.__client.call('pictureprint/index', params)

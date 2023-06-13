@@ -49,7 +49,7 @@ class Oauth:
             header = {
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
             }
-            req_url = self.url + 'oauth/oauth'
+            req_url = self.url + '/' +'oauth/oauth'
             res = requests.post(req_url, data=req_params, headers=header)
             return json.loads(res.text)
         except Exception as e:
