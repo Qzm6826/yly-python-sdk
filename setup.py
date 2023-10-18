@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="yly-python-sdk",
-    version="2.0",
+    version="2.0.1",
     keywords=("python", "openapi"),
     description="yly openapi python sdk",
     license="MIT Licence",

@@ -242,3 +242,20 @@ class YlyPrinter:
             'machine_code': machine_code
         }
         return self.__client.call('printer/getprintstatus', params)
+
+    def set_keywords(self, machine_code, keys, type, content):
+        """
+        K8关键词设置接口
+        :param machine_code:
+        :param keys:
+        :param type:
+        :param content:
+        :return:
+        """
+        params = {
+            'machine_code': machine_code,
+            'keys': keys,
+            'type': type,
+            'content': content
+        }
+        return  self.__client.call('printer/setkeywords', params)

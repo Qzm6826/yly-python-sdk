@@ -48,6 +48,8 @@ print_service.index('机器码', '打印内容', '商户系统内部订单号，
 ```
 
 # ChangeLog
+#### [v2.0.1]
+1. [Feature]v2新增[K8关键词设置](https://www.kancloud.cn/ly6886/oauth-api/3198288)接口。
 #### [v2.0]
 * Release Date : 2023-06-07
 1. [Feature]更新接口v2.0版本，[文档](https://www.kancloud.cn/ly6886/oauth-api/3170299)
