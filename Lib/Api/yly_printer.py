@@ -243,6 +243,20 @@ class YlyPrinter:
         }
         return self.__client.call('printer/getprintstatus', params)
 
+    def push_switch(self, machine_code, status):
+        """
+        K8 推送开关设置接口
+        :param machine_code:
+        :param status:
+        :return:
+        """
+        params = {
+            'machine_code': machine_code,
+            'status': status
+        }
+        return self.__client.call('printer/pushswitch', params)
+
+
     def set_keywords(self, machine_code, keys, type, content):
         """
         K8关键词设置接口
@@ -258,4 +272,22 @@ class YlyPrinter:
             'type': type,
             'content': content
         }
-        return  self.__client.call('printer/setkeywords', params)
+        return self.__client.call('printer/setkeywords', params)
+
+    def setting(self, machine_code, usb_print_mode= None, usb_input_mode= None, camera_decode_tx_mode= None):
+        """
+        K8 高级设置接口
+        :param machine_code:
+        :param usb_print_mode:
+        :param usb_input_mode:
+        :param camera_decode_tx_mode:
+        :return:
+        """
+        params = {'machine_code': machine_code}
+        if (usb_print_mode == 0 or usb_print_mode == 1):
+            params['usb_print_mode'] = usb_print_mode
+        if (usb_input_mode == 0 or usb_input_mode == 1):
+            params['usb_input_mode'] = usb_input_mode
+        if (camera_decode_tx_mode == 0 or camera_decode_tx_mode == 1):
+            params['camera_decode_tx_mode'] = camera_decode_tx_mode
+        return self.__client.call('printer/setting', params)
