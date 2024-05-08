@@ -243,16 +243,18 @@ class YlyPrinter:
         }
         return self.__client.call('printer/getprintstatus', params)
 
-    def push_switch(self, machine_code, status):
+    def push_switch(self, machine_code, status, mode= 1):
         """
         K8 推送开关设置接口
         :param machine_code:
         :param status:
+        :param mode
         :return:
         """
         params = {
             'machine_code': machine_code,
-            'status': status
+            'status': status,
+            'mode': mode
         }
         return self.__client.call('printer/pushswitch', params)
 
